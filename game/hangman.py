@@ -19,9 +19,11 @@ word = random.choice(wordList)
 def play_game():
     triesLeft = 6
     stage = 0
+    triedLetters = []
     
     
     word = random.choice(wordList)
+    word = 'abc'
     
     letterDisplay = []
     for character in range(len(word)):
@@ -39,10 +41,11 @@ def play_game():
         print("what letter would you like to try?\n")
         
         userTry = input().lower()
-        if not userTry.isalpha():
+        if userTry.isalpha() != True or len(userTry) != 1:
             print("please enter a letter")
             userTry= input().lower()
             #find a way to check again
+            
         if userTry in word:
             letterAmount = word.count(userTry)
             print('\n\n' + "You are correct there are " + str(letterAmount) + ' cases of ' + userTry)
@@ -50,22 +53,34 @@ def play_game():
                 if word[i] == userTry:
                     letterDisplay[i] = userTry
                     indiv = indiv.replace(userTry,'')
+                    triedLetters.append(userTry)
         
         elif userTry not in word:
             triesLeft -= 1
             stage += 1
             print("\n\nincorrect you have " + str(triesLeft) +" tries left")
+            triedLetters.append(userTry)
+        
             
         print('\n')
         print(art.HANGMANPICS[stage])
         print('\n')
         
         for underscore in letterDisplay:
-                print(underscore, end="")
-                
+            print(underscore, end="")
         if indiv == '':
             print('\nCongrats you won')
             triesLeft = 0
+        print("\nThe letters you have tried:\n")
+        print(triedLetters)
+        if triesLeft == 0:
+            print('\nYou lost\n' + 'the word was ' + word)
+            
+                
+        # for i in triedLetters:
+        #     print("\nThe letters you have tried:\n")
+        #     print(i, end='')
+                
             
 
                 
@@ -79,7 +94,9 @@ def play_game():
         exit()
         
         
-print("Welcome to hangman\nWould you like to play?\n" + "Press 'y' for yes and 'n' for no")
+print("Welcome to hangman\nWould you like to play?\n"+ "\n Rules Of The Game\n" )
+print("Rules Of The Game 1...2...3\n")
+print("Press 'y' for yes and 'n' for no")
 
 choice = input()
 
