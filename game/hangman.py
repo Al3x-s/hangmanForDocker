@@ -23,7 +23,6 @@ def play_game():
     
     
     word = random.choice(wordList)
-    word = 'abc'
     
     letterDisplay = []
     for character in range(len(word)):

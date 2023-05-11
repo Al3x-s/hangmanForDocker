@@ -1,9 +1,1 @@
-    The program should start by displaying a welcome message and explaining the rules of the game.
-    The program should randomly select a word from a predefined list of words (you can create your own list).
-    The program should display the word as a series of underscores, representing the unknown letters. For example, if the word is "hangman," it should be displayed as "_ _ _ _ _ _ _."
-    The player should be allowed to guess letters one at a time.
-    The program should check if the guessed letter is in the word. If it is, the program should reveal the positions of the guessed letter in the word.
-    The program should keep track of the letters guessed so far and display them to the player.
-    The player should have a limited number of guesses (e.g., 6) before they lose the game.
-    If the player correctly guesses all the letters in the word before running out of guesses, the program should display a congratulatory message and end the game.
-    If the player runs out of guesses before guessing the word correctly, the program should reveal the word and display a message indicating that the player lost.
+random
